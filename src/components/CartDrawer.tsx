@@ -9,6 +9,7 @@ export default function CartDrawer() {
   const [orderPlaced, setOrderPlaced] = useState(false);
 
   const handleCheckout = () => {
+    setIsCartOpen(false);
     setShowCheckout(true);
   };
 
@@ -155,7 +156,7 @@ export default function CartDrawer() {
       </div>
 
       <Dialog open={showCheckout} onOpenChange={setShowCheckout}>
-        <DialogContent className="max-h-[90vh] overflow-y-auto border-ink/10 bg-paper sm:max-w-md">
+        <DialogContent className="max-h-[min(90vh,85dvh)] overflow-y-auto overflow-x-hidden overscroll-contain border-ink/10 bg-paper pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:max-w-md sm:pb-6">
           <DialogHeader>
             <DialogTitle className="font-display text-xl">
               {orderPlaced ? 'Order Confirmed!' : 'Checkout'}
