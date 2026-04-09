@@ -40,60 +40,71 @@ export default function ExclusiveCakesSection() {
 
   useEffect(() => {
     const section = sectionRef.current;
-    const headline = headlineRef.current;
-    const card = cardRef.current;
-    const dots = dotsRef.current;
+    if (!section) return;
 
-    if (!section || !headline || !card || !dots) return;
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 768px)', () => {
+      const headline = headlineRef.current;
+      const card = cardRef.current;
+      const dots = dotsRef.current;
+      if (!headline || !card || !dots) return;
 
-    const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=130%',
-          pin: true,
-          scrub: 0.9,
-        }
-      });
+      const ctx = gsap.context(() => {
+        const scrollTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: '+=130%',
+            pin: true,
+            scrub: 0.9,
+          },
+        });
 
-      scrollTl
-        .fromTo(headline,
-          { x: '-50vw', opacity: 0 },
-          { x: 0, opacity: 1, ease: 'none' },
-          0
-        )
-        .fromTo(card,
-          { x: '55vw', rotate: 2, opacity: 0 },
-          { x: 0, rotate: 0, opacity: 1, ease: 'none' },
-          0.05
-        )
-        .fromTo(dots,
-          { scale: 0.8, opacity: 0 },
-          { scale: 1, opacity: 1, ease: 'none' },
-          0.15
-        );
+        scrollTl
+          .fromTo(
+            headline,
+            { x: '-50vw', opacity: 0 },
+            { x: 0, opacity: 1, ease: 'none' },
+            0
+          )
+          .fromTo(
+            card,
+            { x: '55vw', rotate: 2, opacity: 0 },
+            { x: 0, rotate: 0, opacity: 1, ease: 'none' },
+            0.05
+          )
+          .fromTo(
+            dots,
+            { scale: 0.8, opacity: 0 },
+            { scale: 1, opacity: 1, ease: 'none' },
+            0.15
+          );
 
-      scrollTl
-        .fromTo(headline,
-          { x: 0, opacity: 1 },
-          { x: '-18vw', opacity: 0, ease: 'power3.inOut' },
-          0.7
-        )
-        .fromTo(card,
-          { x: 0, rotate: 0, opacity: 1 },
-          { x: '22vw', rotate: -2, opacity: 0, ease: 'power3.inOut' },
-          0.7
-        )
-        .fromTo(dots,
-          { opacity: 1 },
-          { opacity: 0, ease: 'power3.inOut' },
-          0.75
-        );
+        scrollTl
+          .fromTo(
+            headline,
+            { x: 0, opacity: 1 },
+            { x: '-18vw', opacity: 0, ease: 'power3.inOut' },
+            0.7
+          )
+          .fromTo(
+            card,
+            { x: 0, rotate: 0, opacity: 1 },
+            { x: '22vw', rotate: -2, opacity: 0, ease: 'power3.inOut' },
+            0.7
+          )
+          .fromTo(
+            dots,
+            { opacity: 1 },
+            { opacity: 0, ease: 'power3.inOut' },
+            0.75
+          );
+      }, section);
 
-    }, section);
+      return () => ctx.revert();
+    });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   const nextSlide = () => {
@@ -120,26 +131,28 @@ export default function ExclusiveCakesSection() {
     <section
       ref={sectionRef}
       id="cakes"
-      className="section-rule relative w-full h-screen bg-paper overflow-hidden z-20"
+      className="section-rule relative w-full bg-paper z-20 py-16 px-4 sm:px-6 md:px-0 md:py-0 md:h-screen md:overflow-hidden"
     >
       {/* Left Content */}
       <div
         ref={headlineRef}
-        className="absolute left-[6vw] top-[10vh] max-w-[38vw]"
+        className="relative w-full max-w-[40rem] mx-auto md:mx-0 md:absolute md:left-[6vw] md:top-[10vh] md:max-w-[38vw] md:w-auto mb-8 md:mb-0"
       >
-        <span className="text-xs font-body font-semibold uppercase tracking-[0.14em] text-text-secondary mb-4 block">
+        <span className="text-xs font-body font-semibold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-text-secondary mb-3 sm:mb-4 block">
           Most Popular
         </span>
-        <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-ink leading-[0.95] tracking-tight mb-8">
-          OUR EXCLUSIVE<br />CAKES
+        <h2 className="font-display text-[clamp(1.65rem,6vw,4.5rem)] font-bold text-ink leading-[1.05] md:leading-[0.95] tracking-tight mb-6 md:mb-8 text-balance">
+          OUR EXCLUSIVE
+          <br />
+          CAKES
         </h2>
-        <p className="text-ink/70 text-base leading-relaxed max-w-md lg:max-w-[30vw] mb-8">
+        <p className="text-ink/70 text-base leading-relaxed max-w-md mb-6 md:mb-8 text-pretty">
           From classic layers to modern flavors—each cake is finished by hand and made to order.
         </p>
         <button
           type="button"
           onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-          className="text-taupe hover:underline underline-offset-4 font-medium rounded-md focus-ring"
+          className="text-taupe-dark hover:underline underline-offset-4 font-medium rounded-md focus-ring"
         >
           View all cakes
         </button>
@@ -148,7 +161,7 @@ export default function ExclusiveCakesSection() {
       {/* Product Card */}
       <div
         ref={cardRef}
-        className="absolute left-[56vw] top-[18vh] w-[38vw] h-[64vh] overflow-hidden rounded-lg border border-ink/10 bg-white shadow-elevate-2 animate-float"
+        className="relative w-full max-w-lg mx-auto md:mx-0 md:absolute md:left-[56vw] md:top-[18vh] md:w-[38vw] md:max-w-none h-[min(70vh,36rem)] md:h-[64vh] overflow-hidden rounded-lg border border-ink/10 bg-white shadow-elevate-2 md:animate-float"
       >
         <div className="relative h-[72%] overflow-hidden bg-ink/[0.03]">
           {cakes.map((cake, index) => (
@@ -177,12 +190,12 @@ export default function ExclusiveCakesSection() {
             <ChevronRight className="w-5 h-5 text-ink" />
           </button>
         </div>
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="font-display text-xl font-semibold text-ink">
+        <div className="p-4 sm:p-6">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between mb-2 min-w-0">
+            <h3 className="font-display text-lg sm:text-xl font-semibold text-ink leading-snug [overflow-wrap:anywhere]">
               {currentCake.name}
             </h3>
-            <span className="font-display text-xl font-semibold text-taupe">
+            <span className="font-display text-lg sm:text-xl font-semibold text-taupe-dark shrink-0 tabular-nums">
               ${currentCake.price}
             </span>
           </div>
@@ -202,7 +215,7 @@ export default function ExclusiveCakesSection() {
       {/* Dots */}
       <div
         ref={dotsRef}
-        className="absolute top-[86vh] left-[75vw] -translate-x-1/2 flex gap-2"
+        className="relative flex justify-center gap-2 mt-8 md:mt-0 md:absolute md:top-[86vh] md:left-[75vw] md:-translate-x-1/2 md:justify-start"
       >
         {cakes.map((_, index) => (
           <button

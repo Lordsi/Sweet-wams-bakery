@@ -48,12 +48,12 @@ export default function Navigation() {
             : 'bg-transparent'
         }`}
       >
-        <div className="w-full px-6 lg:px-[6vw]">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="w-full min-w-0 px-4 sm:px-6 lg:px-[6vw]">
+          <div className="flex items-center justify-between gap-2 h-16 lg:h-20 min-w-0">
             {/* Logo */}
             <a
               href="#"
-              className="font-display text-lg lg:text-xl font-semibold tracking-tight text-ink rounded-md focus-ring"
+              className="font-display text-base sm:text-lg lg:text-xl font-semibold tracking-tight text-ink rounded-md focus-ring min-w-0 shrink leading-snug"
             >
               Sweet wan Bakery
             </a>

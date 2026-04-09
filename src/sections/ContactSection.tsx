@@ -97,11 +97,11 @@ export default function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="section-rule relative w-full bg-surface-elevated pt-20 lg:pt-28 pb-0 z-[90]"
+      className="section-rule relative w-full bg-surface-elevated pt-16 sm:pt-20 lg:pt-28 pb-0 z-[90]"
     >
-      <div className="px-[6vw]">
-        <div ref={headingRef} className="mb-12">
-          <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-bold text-ink leading-[0.95] tracking-tight mb-4">
+      <div className="px-4 sm:px-6 lg:px-[6vw]">
+        <div ref={headingRef} className="mb-10 sm:mb-12">
+          <h2 className="font-display text-[clamp(1.75rem,5.5vw,4rem)] font-bold text-ink leading-[1.05] sm:leading-[0.98] md:leading-[0.95] tracking-tight mb-4 text-balance">
             VISIT US
           </h2>
           <p className="max-w-prose text-ink/70 text-base">

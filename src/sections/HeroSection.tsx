@@ -114,7 +114,7 @@ export default function HeroSection() {
         fetchPriority="high"
       />
 
-      <div className="absolute left-4 md:left-[6vw] top-auto bottom-12 md:top-0 md:bottom-auto h-auto md:h-full flex flex-col justify-end md:justify-center max-w-[90vw] md:max-w-[46vw] bg-gradient-to-t md:bg-none from-ink/95 to-transparent md:from-transparent p-6 md:p-0 rounded-t-2xl md:rounded-none">
+      <div className="absolute left-0 right-0 md:left-[6vw] md:right-auto top-auto bottom-0 md:bottom-auto md:top-0 h-auto md:h-full flex flex-col justify-end md:justify-center w-full max-w-full md:max-w-[46vw] bg-gradient-to-t md:bg-none from-ink/95 via-ink/85 to-transparent md:from-transparent px-4 pb-10 pt-28 md:p-0 md:pt-0 rounded-t-2xl md:rounded-none">
         <span
           ref={labelRef}
           className="text-xs font-body font-semibold uppercase tracking-[0.14em] text-white/60 mb-4 md:mb-6"
@@ -122,21 +122,21 @@ export default function HeroSection() {
           Artisan Bakery
         </span>
 
-        <div ref={headlineRef} className="space-y-0 mb-6 md:mb-8">
-          <h1 className="font-display text-white text-[clamp(2.25rem,7vw,7rem)] font-bold leading-[0.95] tracking-tight">
+        <div ref={headlineRef} className="space-y-1 sm:space-y-0 mb-6 md:mb-8">
+          <h1 className="font-display text-white text-[clamp(1.65rem,9vw,7rem)] md:text-[clamp(2.25rem,7vw,7rem)] font-bold leading-[1.05] md:leading-[0.95] tracking-tight [overflow-wrap:anywhere]">
             DELICIOUS
           </h1>
-          <h1 className="font-display text-white text-[clamp(2.25rem,7vw,7rem)] font-bold leading-[0.95] tracking-tight">
+          <h1 className="font-display text-white text-[clamp(1.65rem,9vw,7rem)] md:text-[clamp(2.25rem,7vw,7rem)] font-bold leading-[1.05] md:leading-[0.95] tracking-tight [overflow-wrap:anywhere]">
             CAKE
           </h1>
-          <h1 className="font-display text-white text-[clamp(2.25rem,7vw,7rem)] font-bold leading-[0.95] tracking-tight">
+          <h1 className="font-display text-white text-[clamp(1.5rem,8vw,7rem)] md:text-[clamp(2.25rem,7vw,7rem)] font-bold leading-[1.05] md:leading-[0.95] tracking-tight [overflow-wrap:anywhere]">
             FOR EVERYONE
           </h1>
         </div>
 
         <p
           ref={subheadRef}
-          className="text-white/80 md:text-white/70 text-sm md:text-base lg:text-lg max-w-lg lg:max-w-xl leading-relaxed mb-6 md:mb-8"
+          className="text-white/80 md:text-white/70 text-sm md:text-base lg:text-lg max-w-lg lg:max-w-xl leading-relaxed mb-6 md:mb-8 text-pretty"
         >
           Handcrafted desserts, baked daily with real ingredients and zero shortcuts.
         </p>

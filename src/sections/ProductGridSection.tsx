@@ -103,15 +103,18 @@ export default function ProductGridSection({
     <section
       ref={sectionRef}
       id={id}
-      className="section-rule relative w-full bg-paper py-20 lg:py-28 z-40"
+      className="section-rule relative w-full bg-paper py-14 sm:py-20 lg:py-28 z-40"
     >
-      <div className="px-[6vw]">
-        <div ref={headerRef} className="flex items-end justify-between mb-10">
-          <div>
-            <span className="text-xs font-body font-semibold uppercase tracking-[0.14em] text-text-secondary mb-3 block">
+      <div className="px-4 sm:px-6 lg:px-[6vw]">
+        <div
+          ref={headerRef}
+          className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-8 sm:mb-10"
+        >
+          <div className="min-w-0">
+            <span className="text-xs font-body font-semibold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-text-secondary mb-2 sm:mb-3 block">
               {microLabel}
             </span>
-            <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] font-bold text-ink leading-[0.95] tracking-tight">
+            <h2 className="font-display text-[clamp(1.65rem,5.5vw,3.5rem)] font-bold text-ink leading-[1.05] sm:leading-[0.98] md:leading-[0.95] tracking-tight text-balance break-words">
               {title}
             </h2>
           </div>

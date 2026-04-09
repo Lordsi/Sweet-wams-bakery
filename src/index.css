@@ -70,6 +70,7 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    overflow-x: hidden;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -82,6 +83,7 @@
     @apply bg-paper text-ink antialiased;
     font-family: 'Inter', sans-serif;
     overscroll-behavior-y: none;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

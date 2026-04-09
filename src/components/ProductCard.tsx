@@ -70,9 +70,11 @@ export default function ProductCard({
 
       <div className="p-5">
         <div className="mb-3">
-          <div className="flex items-start justify-between gap-2 mb-1">
-            <h3 className="font-display text-lg font-medium text-ink leading-tight">{name}</h3>
-            <span className="font-display text-lg font-semibold text-taupe-dark shrink-0">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-3 mb-1 min-w-0">
+            <h3 className="font-display text-lg font-medium text-ink leading-snug min-w-0 [overflow-wrap:anywhere]">
+              {name}
+            </h3>
+            <span className="font-display text-lg font-semibold text-taupe-dark shrink-0 tabular-nums">
               ${price}
             </span>
           </div>
