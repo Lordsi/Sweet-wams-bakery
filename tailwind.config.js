@@ -11,13 +11,21 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         paper: "#F6F2EA",
+        "paper-dark": "#E8E0D1",
         surface: {
           elevated: "#FAF8F5",
         },
         ink: "#111111",
-        taupe: "#C8A48C",
-        "text-secondary": "#6E6E6E",
+        "ink-soft": "#2A2A2A",
+        taupe: {
+          DEFAULT: "#C8A48C",
+          dark: "#A68568",
+          darker: "#8B6F55",
+          light: "#E5D4C1",
+        },
+        "text-secondary": "#5A5A5A",
         success: {
+          DEFAULT: "#4A7C59",
           muted: "#5C6B5E",
         },
         primary: {

@@ -19,27 +19,27 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({ anticipatePin: 1 });
 
 const buns = [
-  { id: 'bun-1', name: 'Cinnamon Bun', price: 5, image: '/images/product_bun_01.jpg' },
-  { id: 'bun-2', name: 'Glazed Bun', price: 4, image: '/images/product_bun_02.jpg' },
-  { id: 'bun-3', name: 'Berry Bun', price: 5, image: '/images/product_bun_03.jpg' },
+  { id: 'bun-1', name: 'Cinnamon Bun', price: 5, image: '/images/product_bun_01.jpg', description: 'Soft & sweet, baked fresh daily' },
+  { id: 'bun-2', name: 'Glazed Bun', price: 4, image: '/images/product_bun_02.jpg', description: 'Light glaze, morning favorite' },
+  { id: 'bun-3', name: 'Berry Bun', price: 5, image: '/images/product_bun_03.jpg', description: 'Fruit-filled, butter-rich' },
 ];
 
 const croissants = [
-  { id: 'croissant-1', name: 'Butter Croissant', price: 4, image: '/images/product_croissant_01.jpg' },
-  { id: 'croissant-2', name: 'Almond Croissant', price: 5, image: '/images/product_croissant_02.jpg' },
-  { id: 'croissant-3', name: 'Chocolate Croissant', price: 5, image: '/images/product_croissant_03.jpg' },
+  { id: 'croissant-1', name: 'Butter Croissant', price: 4, image: '/images/product_croissant_01.jpg', description: 'Flaky layers, European style' },
+  { id: 'croissant-2', name: 'Almond Croissant', price: 5, image: '/images/product_croissant_02.jpg', description: 'Nutty, golden, crisp' },
+  { id: 'croissant-3', name: 'Chocolate Croissant', price: 5, image: '/images/product_croissant_03.jpg', description: 'Dark chocolate, all-butter' },
 ];
 
 const bread = [
-  { id: 'bread-1', name: 'Sourdough Loaf', price: 7, image: '/images/product_bread_01.jpg' },
-  { id: 'bread-2', name: 'Baguette', price: 4, image: '/images/product_bread_02.jpg' },
-  { id: 'bread-3', name: 'Multigrain', price: 8, image: '/images/product_bread_03.jpg' },
+  { id: 'bread-1', name: 'Sourdough Loaf', price: 7, image: '/images/product_bread_01.jpg', description: 'Tangy crust, open crumb' },
+  { id: 'bread-2', name: 'Baguette', price: 4, image: '/images/product_bread_02.jpg', description: 'Crisp shell, chewy center' },
+  { id: 'bread-3', name: 'Multigrain', price: 8, image: '/images/product_bread_03.jpg', description: 'Seeds & grains, hearty slice' },
 ];
 
 const donuts = [
-  { id: 'donut-1', name: 'Glazed Donut', price: 3, image: '/images/product_donut_01.jpg' },
-  { id: 'donut-2', name: 'Chocolate Donut', price: 4, image: '/images/product_donut_02.jpg' },
-  { id: 'donut-3', name: 'Berry Donut', price: 4, image: '/images/product_donut_03.jpg' },
+  { id: 'donut-1', name: 'Glazed Donut', price: 3, image: '/images/product_donut_01.jpg', description: 'Classic ring, sweet glaze' },
+  { id: 'donut-2', name: 'Chocolate Donut', price: 4, image: '/images/product_donut_02.jpg', description: 'Rich cocoa icing' },
+  { id: 'donut-3', name: 'Berry Donut', price: 4, image: '/images/product_donut_03.jpg', description: 'Fruit glaze, soft crumb' },
 ];
 
 function App() {
@@ -91,10 +91,13 @@ function App() {
   return (
     <CartProvider>
       <div className="relative">
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <div className="grain-overlay" />
         <Navigation />
         <CartDrawer />
-        <main className="relative">
+        <main id="main-content" className="relative" tabIndex={-1}>
           <HeroSection />
           <ExclusiveCakesSection />
           <FreshlyBakedSection />
