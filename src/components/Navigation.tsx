@@ -114,21 +114,21 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu — frosted glass: strong blur + warm tint so text stays readable */}
         <div
-          className={`lg:hidden absolute top-full left-0 right-0 bg-paper/98 backdrop-blur-md border-t border-ink/10 transition-[opacity,transform] duration-300 ease-out ${
+          className={`lg:hidden absolute top-full left-0 right-0 z-50 border-t border-white/40 bg-gradient-to-b from-white/85 to-paper/95 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_12px_40px_rgba(17,17,17,0.12)] transition-[opacity,transform] duration-300 ease-out ${
             isMobileMenuOpen
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 -translate-y-3 pointer-events-none'
           }`}
         >
-          <div className="px-6 py-6 space-y-4">
+          <div className="px-6 py-6 space-y-1">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 type="button"
                 onClick={() => scrollToSection(link.href)}
-                className="block w-full text-left text-base font-body text-ink/80 hover:text-ink py-2 transition-colors rounded-md focus-ring"
+                className="block w-full text-left text-base font-body font-medium text-ink py-3 transition-colors hover:text-taupe-darker rounded-md focus-ring"
               >
                 {link.label}
               </button>
